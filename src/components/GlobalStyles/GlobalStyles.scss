@@ -1,7 +1,15 @@
-@import 'normalize.css';
+@import 'normalize.css'; // không rõ
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
 :root {
   --primary-color: rgba(254, 44, 85, 1);
+  --black: rgba(22, 24, 35, 1);
+  --gray: #757575;
+  --background-color-button-hover: rgba(22, 24, 35, 0.03);
+  --gray-light: #757575;
+  --background-search-light: rgba(22, 24, 35, 0.06);
+  --text-color-link-light: rgb(125, 15, 15);
+  --button-hover-light: rgba(22, 24, 35, 0.03);
+  --button-gray-active: rgba(22, 24, 35, 0.06);
 
   // default layout
   --default-layout-header-height: 60px;
@@ -22,6 +30,13 @@ body {
   line-height: 1.5;
   text-rendering: optimizeSpeed;
 }
-h1 {
-  color: var(--primary-color);
+button,
+input,
+[tabindex] {
+  outline: none;
+  border: none;
+}
+a[href] {
+  color: var(--text-color-link-light);
+  text-decoration: none;
 }
