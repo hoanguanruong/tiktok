@@ -9,7 +9,6 @@ function App() {
       <div className="App">
         <Routes>
           {publicRoutes.map((route, index) => {
-            console.log(route.layout);
             let Layout = DefaultLayout;
             if (route.layout) {
               Layout = route.layout;
