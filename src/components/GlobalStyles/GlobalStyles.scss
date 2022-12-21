@@ -4,6 +4,7 @@
   --primary-color: rgba(254, 44, 85, 1);
   --black: rgba(22, 24, 35, 1);
   --black-hover: rgba(22, 24, 35, 0.03);
+  --black-opacity-75: rgba(22, 24, 35, 0.75);
   --gray: #757575;
   --color-light: #fff;
   --background-light: #fff;
@@ -46,6 +47,7 @@ input,
 [tabindex] {
   outline: none;
   border: none;
+  font-family: 'Oswald', sans-serif;
 }
 a[href] {
   // color: var(--text-color-link-light);

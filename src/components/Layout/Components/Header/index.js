@@ -93,8 +93,8 @@ function Header() {
           <Button outline text>
             Upload
           </Button>
-          <Button primary to="/upload">
-            Login
+          <Button primary className={cx('custom')}>
+            Log In
           </Button>
         </div>
       </div>

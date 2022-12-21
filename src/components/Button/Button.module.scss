@@ -2,11 +2,15 @@
   font-size: var(--font-size-title);
   font-weight: var(--font-weight-bold);
   border-radius: var(--border-radius-button);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   min-width: 100px;
   padding: 9px 16px;
   cursor: pointer;
   border: 1px solid transparent;
   user-select: none;
+
   + .wrapper {
     margin-left: 10px;
   }
@@ -16,10 +20,26 @@
     opacity: 0.7;
   }
 }
+.icon + .title,
+.title + .icon {
+  margin-left: 8px;
+}
 // Button type
+.rounded {
+  color: var(--black-opacity-75);
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
+  border: 1px solid rgba(22, 24, 35, 0.12);
+  &:hover {
+    border-color: rgba(22, 24, 35, 0.2);
+    background-color: rgba(255, 255, 255, 1);
+  }
+}
 .primary {
   background-color: var(--primary-color);
   color: var(--color-light);
+  border-color: var(--primary-color);
 
   &:hover {
     background: var(--button-hover-opacity-primary);
@@ -33,14 +53,18 @@
 
   &:hover {
     background: var(--background-color-hover-outline);
+    border-color: var(--primary-color);
   }
 }
+
 .text {
   &:hover {
     text-decoration: underline;
   }
 }
-
+// .custom {
+//   color: blue;
+// }
 // Button Disable
 //  Button Size
 .small {
