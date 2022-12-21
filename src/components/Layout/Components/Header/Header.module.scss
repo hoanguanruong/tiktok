@@ -15,10 +15,13 @@
   align-items: center;
   justify-content: space-between;
 }
+.search,
+.search_result {
+  width: 361px;
+}
 .search {
   display: flex;
   align-items: center;
-  width: 361px;
   padding-left: 16px;
   background: var(--background-search-light);
   border-radius: var(--search-border-radius);
@@ -42,6 +45,11 @@
   &:focus-within {
     border: 1.5px solid var(--gray);
   }
+}
+.search_title {
+  font-size: 1.4rem;
+  color: var(--gray);
+  padding: 5px 12px;
 }
 .clear,
 .loading {

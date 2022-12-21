@@ -3,7 +3,9 @@
 :root {
   --primary-color: rgba(254, 44, 85, 1);
   --black: rgba(22, 24, 35, 1);
+  --black-hover: rgba(22, 24, 35, 0.03);
   --gray: #757575;
+  --color-light: #fff;
   --background-light: #fff;
   --background-color-button-hover: rgba(22, 24, 35, 0.03);
   --gray-light: #757575;
@@ -16,6 +18,14 @@
   --default-layout-header-height: 60px;
   --default-layout-width: 1150px;
   --default-layout-sidebar-width: 25%;
+  --border-radius-button: 4px;
+
+  // Button
+  --button-hover-opacity-primary: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
+  --background-color-hover-outline: rgba(254, 44, 85, 0.06);
+  // font
+  --font-size-title: 1.6rem;
+  --font-weight-bold: 700;
 }
 html {
   font-size: 62.5%;
@@ -38,6 +48,6 @@ input,
   border: none;
 }
 a[href] {
-  color: var(--text-color-link-light);
+  // color: var(--text-color-link-light);
   text-decoration: none;
 }
