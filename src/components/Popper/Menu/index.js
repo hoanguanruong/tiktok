@@ -2,9 +2,10 @@ import React from 'react';
 import Tippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
-import styles from './Menu.module.scss'; // Load module scss của nó ra
 import styled from 'styled-components';
 import { useSpring, motion } from 'framer-motion';
+import MenuItem from './MenuItem';
+import styles from './Menu.module.scss'; // Load module scss của nó ra
 
 const cx = classNames.bind(styles);
 
@@ -12,7 +13,7 @@ const Box = styled(motion.div)`
   border-radius: 4px;
 `;
 
-function Menu({ children }) {
+function Menu({ children, items = [] }) {
   const springConfig = { damping: 15, stiffness: 300 };
   const initialScale = 0.5;
   const opacity = useSpring(0, springConfig);
@@ -35,15 +36,17 @@ function Menu({ children }) {
     opacity.set(0);
   }
 
+  const renderItems = () => {
+    return items.map((item, index) => <MenuItem key={index} data={item} />);
+  };
   return (
     <Tippy
       interactive
+      delay={[0, 1000]}
       placement="bottom-end"
       render={(attrs) => (
-        <Box style={{ scale, opacity }} className={cx('menu_item_more')} tabIndex="-1" {...attrs}>
-          <PopperWrapper>
-            <h2>Menu Item</h2>
-          </PopperWrapper>
+        <Box className={cx('menu_list')} style={{ scale, opacity }} tabIndex="-1" {...attrs}>
+          <PopperWrapper className={cx('menu_popper')}>{renderItems()}</PopperWrapper>
         </Box>
       )}
       animation={true}

@@ -1,7 +1,15 @@
 import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind'; // Thư viện dùng để đặt tên class có dấu - vì trong jsx không đặt được tên có dấu -
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faSpinner, faMagnifyingGlass, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCircleXmark,
+  faSpinner,
+  faMagnifyingGlass,
+  faEllipsisVertical,
+  faEarthAsia,
+  faCircleQuestion,
+  faKeyboard,
+} from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless'; // Giống như tooltip
 import styled from 'styled-components';
 import { useSpring, motion } from 'framer-motion';
@@ -17,6 +25,22 @@ const cx = classNames.bind(styles); //Khai báo cx dùng để chạy classNames
 const Box = styled(motion.div)`
   border-radius: 4px;
 `;
+
+const MENU_ITEMS = [
+  {
+    icon: <FontAwesomeIcon icon={faEarthAsia} />,
+    title: 'English',
+  },
+  {
+    icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+    title: 'Feedback & help',
+    to: '/feedback',
+  },
+  {
+    icon: <FontAwesomeIcon icon={faKeyboard} />,
+    title: 'Keyboard shorcuts',
+  },
+];
 function Header() {
   const [searchResult, setsearchResult] = useState([]);
 
@@ -96,7 +120,7 @@ function Header() {
           </Button>
           <Button primary>Log In</Button>
 
-          <Menu>
+          <Menu items={MENU_ITEMS}>
             <button className={cx('more_btn')}>
               <FontAwesomeIcon icon={faEllipsisVertical} />
             </button>
