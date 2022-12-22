@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind'; // Thư viện dùng để đặt tên class có dấu - vì trong jsx không đặt được tên có dấu -
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faSpinner, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faSpinner, faMagnifyingGlass, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless'; // Giống như tooltip
 import styled from 'styled-components';
 import { useSpring, motion } from 'framer-motion';
-// import { Box, AnimationToolTip } from '~/Animation/AnimationToolTip';
 
+import Menu from '~/components/Popper/Menu';
 import Button from '~/components/Button';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import styles from './Header.module.scss'; // Load module scss của nó ra
@@ -89,13 +89,18 @@ function Header() {
           </div>
         </Tippy>
         {/* Action */}
+
         <div className={cx('action')}>
           <Button outline text>
             Upload
           </Button>
-          <Button primary className={cx('custom')}>
-            Log In
-          </Button>
+          <Button primary>Log In</Button>
+
+          <Menu>
+            <button className={cx('more_btn')}>
+              <FontAwesomeIcon icon={faEllipsisVertical} />
+            </button>
+          </Menu>
         </div>
       </div>
     </header>

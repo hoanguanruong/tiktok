@@ -17,6 +17,7 @@ function Button({
   disabled = false,
   leftIcon,
   rightIcon,
+  iconSingle,
   children,
   onClick,
   ...passProps
@@ -40,7 +41,17 @@ function Button({
     Comp = 'a';
   }
 
-  const classes = cx('wrapper', { [className]: className, primary, outline, rounded, small, large, text, disabled });
+  const classes = cx('wrapper', {
+    [className]: className,
+    primary,
+    outline,
+    rounded,
+    small,
+    large,
+    text,
+    iconSingle,
+    disabled,
+  });
   return (
     <Comp className={classes} {...props}>
       {leftIcon && <span className={cx('icon')}>{leftIcon}</span>}
