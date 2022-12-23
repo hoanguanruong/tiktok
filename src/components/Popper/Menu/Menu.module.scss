@@ -7,7 +7,7 @@
     justify-content: flex-start;
     border-radius: 0;
     font-weight: 400;
-    padding: 11px 16px;
+    padding: 8px 16px;
   }
 }
 .menu_item {
@@ -17,4 +17,25 @@
 }
 .menu_popper {
   padding-bottom: 8px;
+}
+
+// Header
+.header {
+  position: relative;
+  height: 50px;
+  margin-top: -8px;
+}
+.back_btn {
+  width: 60px;
+  height: 100%;
+  background-color: transparent;
+  cursor: pointer;
+}
+.back_icon {
+}
+.header_title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Tippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
 import styled from 'styled-components';
 import { useSpring, motion } from 'framer-motion';
+import { Wrapper as PopperWrapper } from '~/components/Popper';
+
 import MenuItem from './MenuItem';
+import Header from './Header';
 import styles from './Menu.module.scss'; // Load module scss của nó ra
 
 const cx = classNames.bind(styles);
@@ -14,6 +16,26 @@ const Box = styled(motion.div)`
 `;
 
 function Menu({ children, items = [] }) {
+  const [history, setHistory] = useState([{ data: items }]);
+  const current = history[history.length - 1];
+
+  const renderItems = () => {
+    return current.data.map((item, index) => {
+      const isParent = !!item.children; // Convert Bool
+      return (
+        <MenuItem
+          key={index}
+          data={item}
+          onClick={() => {
+            if (isParent) {
+              setHistory((prev) => [...prev, item.children]);
+            }
+          }}
+        />
+      );
+    });
+  };
+
   const springConfig = { damping: 15, stiffness: 300 };
   const initialScale = 0.5;
   const opacity = useSpring(0, springConfig);
@@ -36,9 +58,6 @@ function Menu({ children, items = [] }) {
     opacity.set(0);
   }
 
-  const renderItems = () => {
-    return items.map((item, index) => <MenuItem key={index} data={item} />);
-  };
   return (
     <Tippy
       interactive
@@ -46,7 +65,12 @@ function Menu({ children, items = [] }) {
       placement="bottom-end"
       render={(attrs) => (
         <Box className={cx('menu_list')} style={{ scale, opacity }} tabIndex="-1" {...attrs}>
-          <PopperWrapper className={cx('menu_popper')}>{renderItems()}</PopperWrapper>
+          <PopperWrapper className={cx('menu_popper')}>
+            {history.length > 1 && (
+              <Header title="Language" onBack={() => setHistory((prev) => prev.slice(0, prev.length - 1))} />
+            )}
+            {renderItems()}
+          </PopperWrapper>
         </Box>
       )}
       animation={true}

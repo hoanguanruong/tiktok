@@ -30,6 +30,45 @@ const MENU_ITEMS = [
   {
     icon: <FontAwesomeIcon icon={faEarthAsia} />,
     title: 'English',
+    children: {
+      title: 'Language',
+      data: [
+        {
+          code: 'en',
+          title: 'English',
+        },
+        {
+          code: 'vi',
+          title: 'Tiếng Việt',
+          children: {
+            title: 'Language',
+            data: [
+              {
+                code: 'en',
+                title: 'English1',
+              },
+              {
+                code: 'vi',
+                title: 'Tiếng Việt2',
+                children: {
+                  title: 'Language',
+                  data: [
+                    {
+                      code: 'en',
+                      title: 'Englishzxc',
+                    },
+                    {
+                      code: 'vi',
+                      title: 'Tiếng Việtzxc',
+                    },
+                  ],
+                },
+              },
+            ],
+          },
+        },
+      ],
+    },
   },
   {
     icon: <FontAwesomeIcon icon={faCircleQuestion} />,
