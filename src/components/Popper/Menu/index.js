@@ -14,8 +14,9 @@ const cx = classNames.bind(styles);
 const Box = styled(motion.div)`
   border-radius: 4px;
 `;
+const defaultFn = () => {};
 
-function Menu({ children, items = [] }) {
+function Menu({ children, items = [], onChange = defaultFn }) {
   const [history, setHistory] = useState([{ data: items }]);
   const current = history[history.length - 1];
 
@@ -29,6 +30,8 @@ function Menu({ children, items = [] }) {
           onClick={() => {
             if (isParent) {
               setHistory((prev) => [...prev, item.children]);
+            } else {
+              onChange(item);
             }
           }}
         />
@@ -56,6 +59,9 @@ function Menu({ children, items = [] }) {
 
     scale.set(initialScale);
     opacity.set(0);
+    setTimeout(() => {
+      setHistory((prev) => prev.slice(0, 1));
+    }, 500);
   }
 
   return (
