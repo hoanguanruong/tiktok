@@ -11,6 +11,9 @@
   }
 }
 .menu_item {
+  &.separate {
+    border-top: 1px solid rgba(22, 24, 35, 0.12);
+  }
   &:hover {
     background-color: var(--background-color-button-hover);
   }
@@ -30,8 +33,6 @@
   height: 100%;
   background-color: transparent;
   cursor: pointer;
-}
-.back_icon {
 }
 .header_title {
   position: absolute;

@@ -10,6 +10,10 @@ import {
   faCircleQuestion,
   faKeyboard,
   faUpload,
+  faUser,
+  faCoins,
+  faGear,
+  faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
 
 import Tippy from '@tippyjs/react';
@@ -63,6 +67,7 @@ const MENU_ITEMS = [
   },
 ];
 function Header() {
+  const currentUser = true;
   const [searchResult, setsearchResult] = useState([]);
 
   const springConfig = { damping: 15, stiffness: 300 };
@@ -95,7 +100,31 @@ function Header() {
       default:
     }
   };
-  const currentUser = true;
+
+  const userMenu = [
+    {
+      icon: <FontAwesomeIcon icon={faUser} />,
+      title: 'View profile',
+      to: '/@Hoaa',
+    },
+    {
+      icon: <FontAwesomeIcon icon={faCoins} />,
+      title: 'Get coins',
+      to: '/coin',
+    },
+    {
+      icon: <FontAwesomeIcon icon={faGear} />,
+      title: 'Settings',
+      to: '/settings',
+    },
+    ...MENU_ITEMS,
+    {
+      icon: <FontAwesomeIcon icon={faSignOut} />,
+      title: 'Log out',
+      to: '/logout',
+      separate: true,
+    },
+  ];
   return (
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
@@ -158,21 +187,18 @@ function Header() {
               <Button primary>Log In</Button>
             </>
           )}
-          <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
+
+          <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
             {currentUser ? (
-              <>
-                <img
-                  className="image_user"
-                  alt="Nguyễn văn C"
-                  src="https://cdn-upmostlymulti.pressidium.com/wp-content/uploads/james-dietrich-100x100.jpeg"
-                />
-              </>
+              <img
+                className={cx('image_user')}
+                alt="Nguyễn văn C"
+                src="https://cdn-upmostlymulti.pressidium.com/wp-content/uploads/james-dietrich-100x100.jpeg"
+              />
             ) : (
-              <>
-                <button className={cx('more_btn')}>
-                  <FontAwesomeIcon icon={faEllipsisVertical} />
-                </button>
-              </>
+              <button className={cx('more_btn')}>
+                <FontAwesomeIcon icon={faEllipsisVertical} />
+              </button>
             )}
           </Menu>
         </div>

@@ -63,11 +63,11 @@ function Menu({ children, items = [], onChange = defaultFn }) {
       setHistory((prev) => prev.slice(0, 1));
     }, 500);
   }
-
   return (
     <Tippy
       interactive
       delay={[0, 1000]}
+      offset={[12, 8]}
       placement="bottom-end"
       render={(attrs) => (
         <Box className={cx('menu_list')} style={{ scale, opacity }} tabIndex="-1" {...attrs}>
