@@ -1,5 +1,5 @@
 @import 'normalize.css'; // không rõ
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+
 :root {
   --primary-color: rgba(254, 44, 85, 1);
   --black: rgba(22, 24, 35, 1);
@@ -38,7 +38,7 @@ html {
   box-sizing: border-box;
 }
 body {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'ProximaNova', sans-serif;
   font-size: 1.6rem;
   line-height: 1.5;
   text-rendering: optimizeSpeed;
@@ -48,13 +48,33 @@ input,
 [tabindex] {
   outline: none;
   border: none;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'ProximaNova', sans-serif;
 }
 a[href] {
   // color: var(--text-color-link-light);
   text-decoration: none;
 }
-
+// font emmbed
+@font-face {
+  font-family: ProximaNova;
+  src: url('/assets/fonts/Proxima-Nova-Bold.woff2');
+  font-weight: 700;
+}
+@font-face {
+  font-family: ProximaNova;
+  src: url('/assets/fonts/ProximaNova-Semibold.woff2');
+  font-weight: 600;
+}
+@font-face {
+  font-family: ProximaNova;
+  src: url('/assets/fonts/Proxima-Nova-Regular.woff2');
+  font-weight: 400;
+}
+@font-face {
+  font-family: Sofiapro;
+  src: url('/assets/fonts/sofiapro-bold.woff2');
+  font-weight: 700;
+}
 // custom tooltip tippy
 body {
   .tippy-box {

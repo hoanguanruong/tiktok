@@ -1,20 +1,7 @@
 import { useState } from 'react';
 import classNames from 'classnames/bind'; // Thư viện dùng để đặt tên class có dấu - vì trong jsx không đặt được tên có dấu -
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faCircleXmark,
-  faSpinner,
-  faMagnifyingGlass,
-  faEllipsisVertical,
-  faEarthAsia,
-  faCircleQuestion,
-  faKeyboard,
-  faUpload,
-  faUser,
-  faCoins,
-  faGear,
-  faSignOut,
-} from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faSpinner, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
@@ -30,6 +17,20 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import styles from './Header.module.scss'; // Load module scss của nó ra
 import images from '~/assets/images'; // Load Hình ảnh từ folder ra
 import AccountItem from '~/components/AccountItem';
+import Image from '~/components/Image';
+import {
+  LanguageIcon,
+  GetCoinIcon,
+  KeyboardIcon,
+  InboxIcon,
+  LogOutIcon,
+  MessageIcon,
+  SearchIcon,
+  SettingIcon,
+  UploadIcon,
+  ViewProfileIcon,
+  FeedBackIcon,
+} from '~/components/icons';
 
 const cx = classNames.bind(styles); //Khai báo cx dùng để chạy classNames
 const Box = styled(motion.div)`
@@ -38,7 +39,7 @@ const Box = styled(motion.div)`
 
 const MENU_ITEMS = [
   {
-    icon: <FontAwesomeIcon icon={faEarthAsia} />,
+    icon: <LanguageIcon />,
     title: 'English',
     children: {
       title: 'Language',
@@ -57,12 +58,12 @@ const MENU_ITEMS = [
     },
   },
   {
-    icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+    icon: <FeedBackIcon />,
     title: 'Feedback & help',
     to: '/feedback',
   },
   {
-    icon: <FontAwesomeIcon icon={faKeyboard} />,
+    icon: <KeyboardIcon />,
     title: 'Keyboard shorcuts',
   },
 ];
@@ -103,23 +104,23 @@ function Header() {
 
   const userMenu = [
     {
-      icon: <FontAwesomeIcon icon={faUser} />,
+      icon: <ViewProfileIcon />,
       title: 'View profile',
       to: '/@Hoaa',
     },
     {
-      icon: <FontAwesomeIcon icon={faCoins} />,
+      icon: <GetCoinIcon />,
       title: 'Get coins',
       to: '/coin',
     },
     {
-      icon: <FontAwesomeIcon icon={faGear} />,
+      icon: <SettingIcon />,
       title: 'Settings',
       to: '/settings',
     },
     ...MENU_ITEMS,
     {
-      icon: <FontAwesomeIcon icon={faSignOut} />,
+      icon: <LogOutIcon />,
       title: 'Log out',
       to: '/logout',
       separate: true,
@@ -153,17 +154,19 @@ function Header() {
         >
           <div className={cx('search')} spellCheck={false}>
             <input onChange={(e) => setsearchResult(e.target.value)} placeholder="Tìm kiếm tài khoản và video" />
-
-            <button className={cx('clear')}>
-              {/* Clear */}
-              <FontAwesomeIcon icon={faCircleXmark} />
-            </button>
+            {searchResult.length > 0 ? (
+              <button className={cx('clear')}>
+                {/* Clear */}
+                <FontAwesomeIcon icon={faCircleXmark} />
+              </button>
+            ) : (
+              ''
+            )}
             {/* Loading */}
             <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
-
             <button className={cx('search_btn')}>
               {/* Search */}
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
+              <SearchIcon />
             </button>
           </div>
         </HeadlessTippy>
@@ -174,7 +177,17 @@ function Header() {
             <>
               <Tippy delay={(0, 200)} content="Upload video" placement="bottom">
                 <button className={cx('action_btn')}>
-                  <FontAwesomeIcon icon={faUpload} />
+                  <UploadIcon />
+                </button>
+              </Tippy>
+              <Tippy delay={(0, 200)} content="Messages" placement="bottom">
+                <button className={cx('action_btn')}>
+                  <MessageIcon />
+                </button>
+              </Tippy>
+              <Tippy delay={(0, 200)} content="Inbox" placement="bottom">
+                <button className={cx('action_btn')}>
+                  <InboxIcon />
                 </button>
               </Tippy>
             </>
@@ -190,10 +203,11 @@ function Header() {
 
           <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
             {currentUser ? (
-              <img
+              <Image
                 className={cx('image_user')}
                 alt="Nguyễn văn C"
                 src="https://cdn-upmostlymulti.pressidium.com/wp-content/uploads/james-dietrich-100x100.jpeg"
+                fallback="http://localhost:3000/logo192.png"
               />
             ) : (
               <button className={cx('more_btn')}>
