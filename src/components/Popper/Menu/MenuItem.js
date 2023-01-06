@@ -5,7 +5,6 @@ import Button from '~/components/Button';
 const cx = classNames.bind(styles);
 
 function MenuItem({ data, onClick }) {
-  console.log(data.separate);
   const classes = cx('menu_item', {
     separate: data.separate,
   });
