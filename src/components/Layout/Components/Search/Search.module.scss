@@ -39,7 +39,7 @@
 .loading {
   font-size: 1.6rem;
   right: calc(var(--search-button-width) + 16px);
-  color: var(--gray-light);
+  color: var(--active-input);
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
@@ -75,11 +75,14 @@
     content: '';
     transform: translate(0, -50%);
     position: absolute;
-    background-color: var(--gray);
+    background-color: var(--active-input);
     width: 1px;
     height: auto;
     left: 0;
     top: 50%;
     padding: 15px 0;
   }
+}
+.search_value {
+  overflow-y: auto;
 }

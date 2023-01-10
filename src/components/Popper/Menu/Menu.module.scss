@@ -21,12 +21,15 @@
 .menu_popper {
   padding-bottom: 8px;
 }
-
+.menu_body {
+  overflow-y: auto;
+}
 // Header
 .header {
   position: relative;
   height: 50px;
   margin-top: -8px;
+  flex-shrink: 0;
 }
 .back_btn {
   width: 60px;
