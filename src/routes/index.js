@@ -6,14 +6,15 @@ import Following from '~/page/Following';
 import Profile from '~/page/Profile';
 import Upload from '~/page/Upload';
 import Search from '~/page/Search';
+import routes from '~/config/routes';
 
 // chỉ dành để mọi người đọc trên web không cần đăng nhập.
 const publicRoutes = [
-  { path: '/', component: Home },
-  { path: '/following', component: Following },
-  { path: '/@:nickname', component: Profile },
-  { path: '/upload', component: Upload, layout: HeaderOnly },
-  { path: '/search', component: Search, layout: null },
+  { path: routes.home, component: Home },
+  { path: routes.following, component: Following },
+  { path: routes.profile, component: Profile },
+  { path: routes.upload, component: Upload, layout: HeaderOnly },
+  { path: routes.search, component: Search, layout: null },
 ];
 const privateRoutes = [];
 

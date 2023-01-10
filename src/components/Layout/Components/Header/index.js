@@ -1,6 +1,7 @@
 import classNames from 'classnames/bind'; // Thư viện dùng để đặt tên class có dấu - vì trong jsx không đặt được tên có dấu -
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
@@ -10,7 +11,7 @@ import Button from '~/components/Button';
 
 import styles from './Header.module.scss'; // Load module scss của nó ra
 import images from '~/assets/images'; // Load Hình ảnh từ folder ra
-
+import routes from '~/config/routes';
 import Image from '~/components/Image';
 import Search from '../Search';
 import {
@@ -99,9 +100,9 @@ function Header() {
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
         {/* logo */}
-        <div className={cx('logo')}>
+        <Link to={routes.home} className={cx('logo')}>
           <img src={images.logo} alt="tiktok" />
-        </div>
+        </Link>
         {/* search */}
         <Search />
 

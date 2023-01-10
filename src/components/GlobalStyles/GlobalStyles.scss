@@ -5,6 +5,7 @@
   --black: rgba(22, 24, 35, 1);
   --black-hover: rgba(22, 24, 35, 0.03);
   --black-opacity-75: rgba(22, 24, 35, 0.75);
+  --active-input: rgba(22, 24, 35, 0.2);
   --gray: #757575;
   --color-light: #fff;
   --background-light: #fff;
@@ -26,6 +27,7 @@
   --button-hover-opacity-primary: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
   --background-color-hover-outline: rgba(254, 44, 85, 0.06);
   // font
+  --font-family: 'ProximaNova', sans-serif;
   --font-size-title: 1.6rem;
   --font-weight-bold: 700;
 }
@@ -38,7 +40,7 @@ html {
   box-sizing: border-box;
 }
 body {
-  font-family: 'ProximaNova', sans-serif;
+  font-family: var(--font-family);
   font-size: 1.6rem;
   line-height: 1.5;
   text-rendering: optimizeSpeed;
@@ -48,7 +50,7 @@ input,
 [tabindex] {
   outline: none;
   border: none;
-  font-family: 'ProximaNova', sans-serif;
+  font-family: var(--font-family);
 }
 a[href] {
   // color: var(--text-color-link-light);

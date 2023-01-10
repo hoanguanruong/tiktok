@@ -27,7 +27,7 @@
     background-color: var(--background-color-button-hover);
   }
   &:focus-within {
-    border: 1.5px solid var(--gray);
+    border: 1.5px solid var(--active-input);
   }
 }
 .search_title {

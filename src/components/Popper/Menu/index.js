@@ -16,7 +16,7 @@ const Box = styled(motion.div)`
 `;
 const defaultFn = () => {};
 
-function Menu({ children, items = [], onChange = defaultFn }) {
+function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn }) {
   const [history, setHistory] = useState([{ data: items }]);
   const current = history[history.length - 1];
 
@@ -68,6 +68,7 @@ function Menu({ children, items = [], onChange = defaultFn }) {
       interactive
       delay={[0, 1000]}
       offset={[12, 8]}
+      hideOnClick={hideOnClick}
       placement="bottom-end"
       render={(attrs) => (
         <Box className={cx('menu_list')} style={{ scale, opacity }} tabIndex="-1" {...attrs}>
