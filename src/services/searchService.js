@@ -2,7 +2,7 @@ import * as request from '~/utils/request';
 
 export const search = async (search) => {
   try {
-    const res = await request.get('search/getSearch', {
+    const res = await request.get('product/search', {
       params: {
         search,
       },
@@ -10,5 +10,6 @@ export const search = async (search) => {
     return res.products;
   } catch (error) {
     console.log(error);
+    return [];
   }
 };

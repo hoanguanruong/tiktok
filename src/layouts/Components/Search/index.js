@@ -11,7 +11,7 @@ import { useSpring, motion } from 'framer-motion';
 
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import { useDebounce } from '~/hooks';
-import * as searchServices from '~/apiServices/searchServices';
+import * as searchService from '~/services/searchService';
 import styles from './Search.module.scss'; // Load module scss của nó ra
 import AccountItem from '~/components/AccountItem';
 import { SearchIcon } from '~/components/icons';
@@ -59,7 +59,7 @@ function Search() {
     const fetchApi = async () => {
       setLoading(true);
 
-      const result = await searchServices.search(debounced);
+      const result = await searchService.search(debounced);
 
       setSearchResult(result);
       setLoading(false);

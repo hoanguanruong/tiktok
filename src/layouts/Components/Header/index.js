@@ -11,7 +11,7 @@ import Button from '~/components/Button';
 
 import styles from './Header.module.scss'; // Load module scss của nó ra
 import images from '~/assets/images'; // Load Hình ảnh từ folder ra
-import routes from '~/config/routes';
+import config from '~/config';
 import Image from '~/components/Image';
 import Search from '../Search';
 import {
@@ -100,7 +100,7 @@ function Header() {
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
         {/* logo */}
-        <Link to={routes.home} className={cx('logo')}>
+        <Link to={config.routes.home} className={cx('logo')}>
           <img src={images.logo} alt="tiktok" />
         </Link>
         {/* search */}
