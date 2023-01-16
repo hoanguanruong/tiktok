@@ -14,7 +14,7 @@ import { useDebounce } from '~/hooks';
 import * as searchService from '~/services/searchService';
 import styles from './Search.module.scss'; // Load module scss của nó ra
 import AccountItem from '~/components/AccountItem';
-import { SearchIcon } from '~/components/icons';
+import { SearchIcon } from '~/components/Icons';
 
 const cx = classNames.bind(styles); //Khai báo cx dùng để chạy classNames
 const Box = styled(motion.div)`

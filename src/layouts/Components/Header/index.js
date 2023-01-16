@@ -25,7 +25,7 @@ import {
   UploadIcon,
   ViewProfileIcon,
   FeedBackIcon,
-} from '~/components/icons';
+} from '~/components/Icons';
 
 const cx = classNames.bind(styles); //Khai báo cx dùng để chạy classNames
 

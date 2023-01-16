@@ -8,8 +8,9 @@
 
 .container {
   display: flex;
+  max-width: 100%;
   width: var(--default-layout-width);
-  padding: 0 var(--default-layout-horizontal-spacer);
+  // padding: 0 var(--default-layout-horizontal-spacer);
 }
 
 .content {
