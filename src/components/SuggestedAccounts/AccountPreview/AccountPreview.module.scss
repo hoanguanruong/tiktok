@@ -1,0 +1,54 @@
+.wrapper {
+  padding: 20px;
+  min-width: 300px;
+}
+
+.header {
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.image {
+  height: 44px;
+  width: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.item_info {
+  color: #161823;
+}
+
+.nickname {
+  display: flex;
+  font-size: 1.8rem;
+  align-items: center;
+}
+
+.check {
+  color: #20d5ec;
+  margin-left: 5px;
+}
+
+.name {
+  font-size: 1.4rem;
+}
+
+.analytic {
+  margin-top: 8px;
+  font-size: 1.7rem;
+  :not(:last-child) {
+    margin-right: 5px;
+  }
+  span {
+    color: #161823bf;
+  }
+}
+
+.value {
+}
+
+.label {
+}

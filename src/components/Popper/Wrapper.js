@@ -8,7 +8,7 @@ function Wrapper({ children, className }) {
   return <div className={cx('wrapper', className)}>{children}</div>;
 }
 
-Wrapper.prototype = {
+Wrapper.propTypes = {
   children: Proptypes.node.isRequired,
   className: Proptypes.string,
 };

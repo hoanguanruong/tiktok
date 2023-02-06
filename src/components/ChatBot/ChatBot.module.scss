@@ -1,0 +1,14 @@
+.list_image {
+  display: flex;
+
+  flex-wrap: wrap;
+}
+.item {
+  list-style: none;
+  float: left;
+  margin-left: 5px;
+  width: 40%;
+}
+.item > img {
+  width: 100%;
+}

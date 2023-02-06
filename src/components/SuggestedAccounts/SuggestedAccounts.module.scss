@@ -1,0 +1,75 @@
+.wrapper {
+  position: relative;
+  padding: 16px 0;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  &::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    top: 0;
+    height: 1px;
+    background: rgba(22, 24, 35, 0.12);
+    -webkit-transform: scaleY(0.5);
+    -moz-transform: scaleY(0.5);
+    -ms-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+  }
+}
+.label {
+  padding: 0 8px 8px;
+  color: var(--gray);
+}
+.account_item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  transition: background-color ease-in-out 0.2s;
+  border-radius: 4px;
+  &:hover {
+    cursor: pointer;
+    background-color: rgba(22, 34, 35, 0.03);
+  }
+}
+
+.image {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.item_info {
+  flex: 1;
+  margin-left: 12px;
+}
+.nickname {
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem;
+  color: var(--black);
+  line-height: 1.5rem;
+}
+
+.check {
+  margin-left: 5px;
+  color: #20d5ec;
+}
+
+.name {
+  font-size: 1.2rem;
+  color: var(--gray);
+}
+.more_button {
+  padding: 8px;
+  color: var(--primary-color);
+  font-weight: 700;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+  &:hover {
+    cursor: pointer;
+  }
+}
